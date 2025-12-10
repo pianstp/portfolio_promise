@@ -55,6 +55,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-image: url("./imgs/hero.png");
 }
 
 .hero-content {
@@ -136,10 +137,18 @@ body {
   gap: 25px;
   margin-top: 40px;
 }
-
+.imgs {
+  height: 180px;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+.proj-box {
+  padding: 25px;
+}
 .proj-card {
   background: #1e293b;
-  padding: 25px;
+
   border-radius: 12px;
 }
 
@@ -149,7 +158,8 @@ body {
 
 .btn.small {
   margin-top: 15px;
-  background: #334155;
+  /* background: #334155; */
+  background: #dbd9d9;
 }
 
 /* EXPERIENCE */
