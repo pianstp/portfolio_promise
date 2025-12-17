@@ -158,8 +158,11 @@ body {
 
 .btn.small {
   margin-top: 15px;
-  /* background: #334155; */
-  background: #dbd9d9;
+  background: #334155;
+}
+.btn a {
+  text-decoration: none;
+  color: #fff;
 }
 
 /* EXPERIENCE */
