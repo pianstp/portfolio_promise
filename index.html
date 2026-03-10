@@ -475,7 +475,7 @@
         <label>Message</label>
         <textarea placeholder="Tell me about your project or opportunity..."></textarea>
       </div>
-      <button class="form-submit" onclick="handleSubmit()">Send Message →</button>
+      <button class="form-submit">Send Message →</button>
     </div>
   </div>
 </section>
@@ -490,42 +490,6 @@
     <a href="mailto:onyebuchipromise44@gmail.com">Email</a>
   </div>
 </footer>
-
-<script>
-  // Mobile menu
-  function toggleMenu() {
-    document.getElementById('navLinks').classList.toggle('open');
-  }
-  document.querySelectorAll('#navLinks a').forEach(a => {
-    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
-  });
-
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  reveals.forEach(r => observer.observe(r));
-
-  // Form submit
-  function handleSubmit() {
-    const btn = document.querySelector('.form-submit');
-    btn.textContent = '✓ Message sent!';
-    btn.style.background = '#16a34a';
-    setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; }, 3000);
-  }
-
-  // Active nav highlight
-  const sections = document.querySelectorAll('section[id]');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
-    document.querySelectorAll('.nav-links a').forEach(a => {
-      a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--accent)' : '';
-    });
-  });
-</script>
-
 
 </body>
 </html>

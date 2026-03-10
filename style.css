@@ -14,35 +14,52 @@
 
 /* ── CSS VARIABLES ── */
 :root {
-  /* Light Theme */
-  --cream: #FAF8F4;
-  --white: #ffffff;
-  --ink: #1C1917;
-  --ink-soft: #44403C;
-  --ink-muted: #A8A29E;
-  --accent: #C17A3A;
-  --accent-light: #F5E8D0;
-  --accent-pale: #FDF6EC;
-  --border: #E7E0D5;
+  /* Light Theme - Enhanced with depth */
+  --cream: #F8F9FA;
+  --white: #FFFFFF;
+  --ink: #1A202C;
+  --ink-soft: #2D3748;
+  --ink-muted: #718096;
+  --accent: #D69E2E;
+  --accent-light: #FBD38D;
+  --accent-pale: #FFFAF0;
+  --border: #E2E8F0;
   --card: #FFFFFF;
-  --shadow: rgba(0, 0, 0, 0.04);
-  --shadow-hover: rgba(0, 0, 0, 0.07);
+  --shadow: rgba(0, 0, 0, 0.08);
+  --shadow-hover: rgba(0, 0, 0, 0.15);
+  --surface: #F7FAFC;
 }
 
 [data-theme="dark"] {
-  /* Dark Theme */
-  --cream: #0F0F0F;
-  --white: #1A1A1A;
-  --ink: #F5F5F5;
-  --ink-soft: #D4D4D8;
-  --ink-muted: #71717A;
+  /* Dark Theme - Proper dark backgrounds */
+  --cream: #0A0A0A;
+  --white: #111111;
+  --ink: #FFFFFF;
+  --ink-soft: #E5E5E5;
+  --ink-muted: #A3A3A3;
   --accent: #F59E0B;
-  --accent-light: #292524;
-  --accent-pale: #1C1917;
-  --border: #27272A;
-  --card: #262626;
-  --shadow: rgba(0, 0, 0, 0.2);
-  --shadow-hover: rgba(0, 0, 0, 0.3);
+  --accent-light: #1F1F1F;
+  --accent-pale: #0F0F0F;
+  --border: #333333;
+  --card: #1A1A1A;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --shadow-hover: rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode specific overrides */
+[data-theme="dark"] .btn-dark {
+  background: var(--accent);
+  color: var(--cream);
+}
+
+[data-theme="dark"] .btn-ghost {
+  border-color: var(--border);
+  color: var(--ink-soft);
+}
+
+[data-theme="dark"] .btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 html {
@@ -81,7 +98,7 @@ select {
   left: 1rem;
   padding: 0.5rem 0.9rem;
   background: var(--ink);
-  color: #fff;
+  color: var(--cream);
   border-radius: 8px;
   text-decoration: none;
   z-index: 200;
@@ -113,14 +130,15 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 1.1rem 5vw;
-  background: rgba(250, 248, 244, 0.88);
-  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   transition: background 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 [data-theme="dark"] nav {
-  background: rgba(15, 15, 15, 0.88);
+  background: rgba(10, 10, 10, 0.95);
 }
 
 .nav-logo {
@@ -152,13 +170,17 @@ nav {
 .nav-links a:hover { color: var(--accent); }
 
 .nav-cta {
-  background: var(--ink);
-  color: var(--cream) !important;
+  background: var(--accent);
+  color: #1A202C !important;
   padding: 0.5rem 1.2rem;
   border-radius: 100px;
   transition: all 0.2s !important;
 }
-.nav-cta:hover { background: var(--accent) !important; }
+.nav-cta:hover { background: var(--ink) !important; color: var(--cream) !important; }
+
+[data-theme="dark"] .nav-cta {
+  color: #FFFFFF !important;
+}
 
 .nav-controls {
   display: flex;
@@ -335,14 +357,17 @@ h1.hero-name em {
   text-decoration: none;
   font-size: 0.88rem;
   font-weight: 500;
-  transition: transform 0.2s, background 0.2s, border-color 0.2s, color 0.2s;
+  transition: transform 0.2s, background 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
-.btn:hover { transform: translateY(-2px); }
+.btn:hover { 
+  transform: translateY(-4px); 
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
 
-.btn-dark { background: var(--ink); color: #fff; }
+.btn-dark { background: var(--ink); color: var(--cream); }
 .btn-dark:hover { background: var(--accent); }
 
-.btn-ghost { border: 1.5px solid var(--border); color: var(--ink-soft); }
+.btn-ghost { border: 1.5px solid var(--border); color: var(--ink-soft); background: transparent; }
 .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
 /* ── SOCIAL PILLS ── */
@@ -373,11 +398,17 @@ h1.hero-name em {
 }
 
 .hero-card {
-  background: var(--white);
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 1.6rem;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
+}
+
+.hero-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
 }
 
 .stat-grid {
@@ -578,7 +609,7 @@ h2.section-title em {
 }
 
 .skill-card {
-  background: var(--white);
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 1.6rem;
@@ -586,7 +617,7 @@ h2.section-title em {
 }
 .skill-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 12px 40px var(--shadow-hover);
 }
 
 .skill-card-header {
@@ -695,7 +726,7 @@ h2.section-title em {
 }
 .timeline-content:hover {
   transform: translateX(4px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 30px var(--shadow-hover);
 }
 
 .timeline-header {
@@ -723,7 +754,7 @@ h2.section-title em {
 .timeline-date {
   font-size: 0.75rem;
   color: var(--ink-muted);
-  background: var(--white);
+  background: var(--card);
   border: 1px solid var(--border);
   padding: 0.3rem 0.8rem;
   border-radius: 100px;
@@ -753,7 +784,7 @@ h2.section-title em {
 }
 
 .project-card {
-  background: var(--white);
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: 20px;
   overflow: hidden;
@@ -761,7 +792,7 @@ h2.section-title em {
 }
 .project-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.09);
+  box-shadow: 0 20px 50px var(--shadow-hover);
 }
 .project-card.featured { grid-column: span 2; }
 
@@ -862,7 +893,7 @@ h2.section-title em {
 }
 .blog-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 12px 40px var(--shadow-hover);
 }
 
 .blog-cat {
@@ -947,7 +978,7 @@ h2.section-title em {
   align-items: center;
   gap: 1rem;
   padding: 1rem 1.2rem;
-  background: var(--white);
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: 14px;
   text-decoration: none;
@@ -978,7 +1009,7 @@ h2.section-title em {
 
 /* ── CONTACT FORM ── */
 .contact-form {
-  background: var(--white);
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 2rem;
@@ -1018,7 +1049,7 @@ h2.section-title em {
   width: 100%;
   padding: 1rem;
   background: var(--ink);
-  color: #fff;
+  color: var(--cream);
   border: none;
   border-radius: 100px;
   cursor: pointer;
@@ -1033,30 +1064,80 @@ h2.section-title em {
    FOOTER
    ============================================================ */
 footer {
-  background: var(--ink);
-  color: #fff;
+  background: var(--card);
+  color: var(--ink);
   padding: 3rem 5vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1.5rem;
+  border-top: 1px solid var(--border);
 }
 
-.footer-logo { font-family: 'Fraunces', serif; font-size: 1.2rem; color: #fff; }
+.footer-logo { font-family: 'Fraunces', serif; font-size: 1.2rem; color: var(--ink); }
 .footer-logo span { color: var(--accent); }
 
-footer p { font-size: 0.8rem; color: rgba(255, 255, 255, 0.4); }
+footer p { font-size: 0.8rem; color: var(--ink-muted); }
 
 .footer-links { display: flex; gap: 1.5rem; }
 
 .footer-links a {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--ink-soft);
   text-decoration: none;
   transition: color 0.2s;
 }
 .footer-links a:hover { color: var(--accent); }
+
+/* Dark mode comprehensive fixes */
+[data-theme="dark"] footer {
+  background: var(--card);
+  border-top: 1px solid var(--border);
+}
+
+[data-theme="dark"] #about {
+  background: var(--card);
+}
+
+[data-theme="dark"] #experience {
+  background: var(--card);
+}
+
+[data-theme="dark"] #blog {
+  background: var(--card);
+}
+
+[data-theme="dark"] .nav-links.open {
+  background: var(--card);
+  box-shadow: 0 18px 30px var(--shadow-hover);
+}
+
+[data-theme="dark"] .form-submit {
+  background: var(--accent);
+  color: var(--cream);
+}
+
+[data-theme="dark"] .form-submit:hover {
+  background: var(--accent);
+  color: var(--cream);
+}
+
+[data-theme="dark"] .btn-dark {
+  background: var(--accent);
+  color: var(--cream);
+}
+
+[data-theme="dark"] .btn-dark:hover {
+  background: var(--accent);
+  color: var(--cream);
+}
+
+[data-theme="dark"] nav {
+  background: rgba(10, 10, 10, 0.95);
+}
+
+
 
 /* ============================================================
    ANIMATIONS & KEYFRAMES
@@ -1146,12 +1227,24 @@ footer p { font-size: 0.8rem; color: rgba(255, 255, 255, 0.4); }
   }
   .nav-links.open a {
     font-size: 1.1rem;
-    padding: 0.9rem 0.2rem;
+    padding: 1.2rem 1rem;
+    margin: 0.3rem 0;
+    border-radius: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
     width: 100%;
     min-height: 44px;
     opacity: 0;
     transform: translateY(6px);
     animation: navDrop 0.25s ease forwards;
+    transition: all 0.2s ease;
+  }
+  .nav-links.open a:hover {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    transform: translateX(4px);
   }
   .nav-links.open li:nth-child(1) a { animation-delay: 0.05s; }
   .nav-links.open li:nth-child(2) a { animation-delay: 0.1s; }
