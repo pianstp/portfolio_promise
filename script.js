@@ -1,0 +1,67 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.getElementById('navLinks');
+  const hamburger = document.getElementById('hamburger');
+
+  const setMenuState = (isOpen) => {
+    if (!navLinks || !hamburger) return;
+    navLinks.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  };
+
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      setMenuState(!navLinks.classList.contains('open'));
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setMenuState(false));
+    });
+  }
+
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach((el) => observer.observe(el));
+  } else {
+    reveals.forEach((el) => el.classList.add('visible'));
+  }
+
+  const submitBtn = document.querySelector('.form-submit');
+  if (submitBtn) {
+    submitBtn.addEventListener('click', () => {
+      submitBtn.textContent = '\u2713 Message sent!';
+      submitBtn.style.background = '#16a34a';
+      window.setTimeout(() => {
+        submitBtn.textContent = 'Send Message \u2192';
+        submitBtn.style.background = '';
+      }, 3000);
+    });
+  }
+
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a');
+  const updateActiveNav = () => {
+    let current = '';
+    sections.forEach((section) => {
+      if (window.scrollY >= section.offsetTop - 80) {
+        current = section.id;
+      }
+    });
+    navAnchors.forEach((anchor) => {
+      anchor.style.color = anchor.getAttribute('href') === `#${current}` ? 'var(--accent)' : '';
+    });
+  };
+
+  window.addEventListener('scroll', updateActiveNav);
+  updateActiveNav();
+
+  document.querySelectorAll('.hero-anim').forEach((el) => el.classList.add('is-in'));
+});
