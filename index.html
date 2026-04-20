@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Onyebuchi Chukwuemerie Promise — Frontend Developer specializing in React.js, TypeScript, Next.js & Flutter. Building scalable, high-performance web applications." />
+  <meta name="keywords" content="Frontend Developer, React.js, TypeScript, Next.js, Flutter, Lagos Nigeria, Portfolio" />
+  <meta property="og:title" content="Onyebuchi Promise · Frontend Developer" />
+  <meta property="og:description" content="Frontend Engineer with 2+ years of experience building scalable, high-performance web applications." />
+  <meta property="og:type" content="website" />
+  <title>Onyebuchi Promise · Frontend Developer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Devicons for tech icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== CUSTOM CURSOR ===== -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ===== LOADER ===== -->
+  <div class="loader" id="loader">
+    <div class="loader-content">
+      <div class="loader-text">
+        <span>O</span><span>P</span><span>.</span>
+      </div>
+      <div class="loader-bar">
+        <div class="loader-progress" id="loaderProgress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-text">OP</span>
+        <span class="logo-dot"></span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link" data-nav="about">About</a></li>
+        <li><a href="#skills" class="nav-link" data-nav="skills">Skills</a></li>
+        <li><a href="#experience" class="nav-link" data-nav="experience">Experience</a></li>
+        <li><a href="#projects" class="nav-link" data-nav="projects">Projects</a></li>
+        <li><a href="#contact" class="nav-link" data-nav="contact">Contact</a></li>
+        <li><a href="#" class="nav-link" data-nav="resume" id="navResumeBtn" onclick="event.preventDefault(); openResumeModal()"><i class="fas fa-file-pdf"></i> Resume</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+        <a href="#contact" class="btn btn-primary btn-sm">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== SIDE SOCIAL BAR ===== -->
+  <div class="side-social" id="sideSocial">
+    <a href="https://github.com/pianstp" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="side-social-link">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://linkedin.com/in/onyebuchi-promise" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="side-social-link">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="mailto:onyebuchipromise@gmail.com" aria-label="Email" class="side-social-link">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <div class="side-social-line"></div>
+  </div>
+
+  <!-- ===== MOBILE MENU ===== -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+      <i class="fas fa-times"></i>
+    </button>
+    <ul class="mobile-nav-links">
+      <li><a href="#about" class="mobile-nav-link">About</a></li>
+      <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+      <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+      <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+      <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+      <li><a href="#" class="mobile-nav-link" id="mobileResumeBtn" onclick="event.preventDefault(); openResumeModal(); closeMobileMenu()"><i class="fas fa-file-pdf"></i> View Resume</a></li>
+    </ul>
+    <div class="mobile-menu-footer">
+      <a href="https://github.com/pianstp" target="_blank" rel="noopener noreferrer" class="social-icon-link">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://linkedin.com/in/onyebuchi-promise" target="_blank" rel="noopener noreferrer" class="social-icon-link">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+  </div>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <main>
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="home">
+      <!-- Particle Canvas -->
+      <canvas id="particleCanvas" class="particle-canvas"></canvas>
+      <!-- Animated background grid -->
+      <div class="hero-grid"></div>
+      <!-- Glow orbs -->
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+
+      <div class="hero-content container">
+        <div class="hero-left">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Available for new opportunities
+          </div>
+
+          <h1 class="hero-title">
+            <span class="greeting">Hello, I'm</span>
+            <span class="name-line">
+              <span class="name">Onyebuchi</span>
+            </span>
+            <span class="name-line">
+              <span class="name gradient-text">Promise</span>
+            </span>
+          </h1>
+
+          <div class="hero-role">
+            <span class="role-prefix">I build</span>
+            <div class="role-words">
+              <span class="role-word active">React.js Apps</span>
+              <span class="role-word">Next.js Projects</span>
+              <span class="role-word">TypeScript Systems</span>
+              <span class="role-word">Flutter UIs</span>
+            </div>
+          </div>
+
+          <p class="hero-description">
+            Frontend Engineer with <strong>2+ years</strong> of experience crafting scalable, high-performance web applications.
+            Passionate about intuitive digital experiences, performance optimization, and modern frontend architecture.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <span>View My Work</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="#contact" class="btn btn-ghost">
+              <span>Let's Talk</span>
+              <i class="fas fa-paper-plane"></i>
+            </a>
+            <a href="#" class="btn btn-outline" id="downloadResume" onclick="event.preventDefault(); openResumeModal()">
+              <i class="fas fa-download"></i>
+              <span>Resume</span>
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number" data-count="2" data-suffix="+">0</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="10" data-suffix="+">0</span>
+              <span class="stat-label">Projects Built</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="3" data-suffix="+">0</span>
+              <span class="stat-label">Companies</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-avatar-wrapper">
+            <div class="avatar-ring ring-1"></div>
+            <div class="avatar-ring ring-2"></div>
+            <div class="avatar-ring ring-3"></div>
+            <div class="avatar-container">
+              <img src="assets/images/promise.jpg" alt="Onyebuchi Chukwuemerie Promise" class="avatar-img" />
+            </div>
+            <!-- Floating tech badges -->
+            <div class="float-badge float-badge-1">
+              <i class="devicon-react-original colored"></i>
+              <span>React.js</span>
+            </div>
+            <div class="float-badge float-badge-2">
+              <i class="devicon-nextjs-plain"></i>
+              <span>Next.js</span>
+            </div>
+            <div class="float-badge float-badge-3">
+              <i class="devicon-typescript-plain colored"></i>
+              <span>TypeScript</span>
+            </div>
+            <div class="float-badge float-badge-4">
+              <i class="devicon-flutter-plain colored"></i>
+              <span>Flutter</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <span>Scroll down</span>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-tag">Get to know me</span>
+          <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text" data-reveal>
+            <p class="about-lead">
+              I'm a <strong>Frontend Engineer</strong> based in Lagos, Nigeria, specializing in building exceptional digital experiences that are fast, accessible, and visually stunning.
+            </p>
+            <p>
+              With 2+ years of experience, I've worked across multiple companies and hackathons — translating complex Figma designs into pixel-perfect interfaces, integrating RESTful APIs, and collaborating in Agile teams. I'm deeply passionate about performance engineering, modern architecture, and the intersection of design and code.
+            </p>
+            <p>
+              Currently pursuing a <strong>B.Sc. in Telecommunications Science</strong> at the University of Ilorin while actively building production-grade applications. I leverage AI tools to ship faster and smarter — not replace thinking, but amplify it.
+            </p>
+
+            <div class="about-highlights">
+              <div class="highlight-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Lagos, Nigeria</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:onyebuchipromise@gmail.com">onyebuchipromise@gmail.com</a>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-phone"></i>
+                <a href="tel:+2349049407852">+234 904 940 7852</a>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-globe"></i>
+                <a href="https://onyebuchipromise.netlify.app" target="_blank" rel="noopener noreferrer">onyebuchipromise.netlify.app</a>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-briefcase"></i>
+                <span class="open-badge">Open to Remote & International</span>
+              </div>
+            </div>
+
+            <div class="about-actions">
+              <a href="#contact" class="btn btn-primary">
+                <span>Get In Touch</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href="https://github.com/pianstp" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="about-cards" data-reveal>
+            <div class="info-card card-blue">
+              <div class="info-card-icon">
+                <i class="fas fa-rocket"></i>
+              </div>
+              <div class="info-card-content">
+                <h3>Performance-First</h3>
+                <p>Built applications with Core Web Vitals, optimization in mind, and delivered 2% dev speed increase via AI tooling.</p>
+              </div>
+            </div>
+            <div class="info-card card-indigo">
+              <div class="info-card-icon">
+                <i class="fas fa-paint-brush"></i>
+              </div>
+              <div class="info-card-content">
+                <h3>Design-to-Code</h3>
+                <p>Pixel-perfect translation of Figma designs into accessible, responsive UIs that match specifications exactly.</p>
+              </div>
+            </div>
+            <div class="info-card card-emerald">
+              <div class="info-card-icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div class="info-card-content">
+                <h3>AI-Enhanced Dev</h3>
+                <p>Proficient with GitHub Copilot, Amazon Q, Windsurf, and Codex — shipping faster without sacrificing quality.</p>
+              </div>
+            </div>
+            <div class="info-card card-purple">
+              <div class="info-card-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="info-card-content">
+                <h3>Agile Contributor</h3>
+                <p>Proven collaborator in Agile environments — sprint planning, PR reviews, and on-time feature delivery.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS SECTION ===== -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-tag">What I work with</span>
+          <h2 class="section-title">Technical <span class="gradient-text">Skills</span></h2>
+        </div>
+
+        <div class="skills-grid" data-reveal>
+          <!-- Languages -->
+          <div class="skill-category">
+            <div class="skill-category-header">
+              <i class="fas fa-code"></i>
+              <h3>Languages</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag skill-tag-primary">
+                <i class="devicon-javascript-plain colored"></i> JavaScript (ES6+)
+              </span>
+              <span class="skill-tag skill-tag-primary">
+                <i class="devicon-typescript-plain colored"></i> TypeScript
+              </span>
+              <span class="skill-tag skill-tag-primary">
+                <i class="devicon-html5-plain colored"></i> HTML5
+              </span>
+              <span class="skill-tag skill-tag-primary">
+                <i class="devicon-css3-plain colored"></i> CSS3
+              </span>
+              <span class="skill-tag skill-tag-primary">
+                <i class="devicon-dart-plain colored"></i> Dart
+              </span>
+              <span class="skill-tag skill-tag-secondary">PHP (basic)</span>
+            </div>
+          </div>
+
+          <!-- Frameworks -->
+          <div class="skill-category">
+            <div class="skill-category-header">
+              <i class="fas fa-layer-group"></i>
+              <h3>Frameworks & Libraries</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag skill-tag-primary">
+                <i class="devicon-react-original colored"></i> React.js
+              </span>
+              <span class="skill-tag skill-tag-primary">
+                <i class="devicon-nextjs-plain"></i> Next.js
+              </span>
+              <span class="skill-tag skill-tag-primary">
+                <i class="devicon-flutter-plain colored"></i> Flutter
+              </span>
+              <span class="skill-tag skill-tag-primary">
+                <i class="devicon-tailwindcss-plain colored"></i> Tailwind CSS
+              </span>
+              <span class="skill-tag skill-tag-primary">
+                <i class="devicon-sass-original colored"></i> SCSS
+              </span>
+              <span class="skill-tag skill-tag-secondary">CSS Modules</span>
+              <span class="skill-tag skill-tag-secondary">Bootstrap</span>
+            </div>
+          </div>
+
+          <!-- State Management -->
+          <div class="skill-category">
+            <div class="skill-category-header">
+              <i class="fas fa-database"></i>
+              <h3>State Management</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag skill-tag-primary">Context API + Hooks</span>
+              <span class="skill-tag skill-tag-primary">Redux Toolkit</span>
+              <span class="skill-tag skill-tag-secondary">Zustand</span>
+            </div>
+          </div>
+
+          <!-- APIs & Data -->
+          <div class="skill-category">
+            <div class="skill-category-header">
+              <i class="fas fa-plug"></i>
+              <h3>APIs & Data</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag skill-tag-primary">RESTful APIs</span>
+              <span class="skill-tag skill-tag-primary">Async Data Handling</span>
+              <span class="skill-tag skill-tag-secondary">GraphQL (basic)</span>
+              <span class="skill-tag skill-tag-secondary">OpenWeather API</span>
+              <span class="skill-tag skill-tag-secondary">Boonbac API</span>
+            </div>
+          </div>
+
+          <!-- Tools -->
+          <div class="skill-category">
+            <div class="skill-category-header">
+              <i class="fas fa-tools"></i>
+              <h3>Tools & Workflow</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag skill-tag-primary">
+                <i class="devicon-git-plain colored"></i> Git & GitHub
+              </span>
+              <span class="skill-tag skill-tag-primary">
+                <i class="devicon-figma-plain colored"></i> Figma
+              </span>
+              <span class="skill-tag skill-tag-primary">
+                <i class="devicon-vscode-plain colored"></i> VS Code
+              </span>
+              <span class="skill-tag skill-tag-primary">GitHub Copilot</span>
+              <span class="skill-tag skill-tag-primary">Amazon Q</span>
+              <span class="skill-tag skill-tag-secondary">Windsurf</span>
+              <span class="skill-tag skill-tag-secondary">CI/CD</span>
+            </div>
+          </div>
+
+          <!-- Other -->
+          <div class="skill-category">
+            <div class="skill-category-header">
+              <i class="fas fa-star"></i>
+              <h3>Other Expertise</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag skill-tag-primary">Responsive Design</span>
+              <span class="skill-tag skill-tag-primary">ARIA Accessibility</span>
+              <span class="skill-tag skill-tag-primary">SEO</span>
+              <span class="skill-tag skill-tag-primary">Core Web Vitals</span>
+              <span class="skill-tag skill-tag-primary">Jest (basic)</span>
+              <span class="skill-tag skill-tag-secondary">React Testing Library</span>
+              <span class="skill-tag skill-tag-secondary">AI-Assisted Dev</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech Stack visual bar -->
+        <div class="tech-stack-bar" data-reveal>
+          <h3>Primary Tech Stack</h3>
+          <div class="tech-icons-row">
+            <div class="tech-icon-item">
+              <i class="devicon-react-original colored"></i>
+              <span>React</span>
+            </div>
+            <div class="tech-icon-item">
+              <i class="devicon-nextjs-plain"></i>
+              <span>Next.js</span>
+            </div>
+            <div class="tech-icon-item">
+              <i class="devicon-typescript-plain colored"></i>
+              <span>TypeScript</span>
+            </div>
+            <div class="tech-icon-item">
+              <i class="devicon-javascript-plain colored"></i>
+              <span>JavaScript</span>
+            </div>
+            <div class="tech-icon-item">
+              <i class="devicon-tailwindcss-plain colored"></i>
+              <span>Tailwind</span>
+            </div>
+            <div class="tech-icon-item">
+              <i class="devicon-flutter-plain colored"></i>
+              <span>Flutter</span>
+            </div>
+            <div class="tech-icon-item">
+              <i class="devicon-git-plain colored"></i>
+              <span>Git</span>
+            </div>
+            <div class="tech-icon-item">
+              <i class="devicon-figma-plain colored"></i>
+              <span>Figma</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE SECTION ===== -->
+    <section class="section experience-section" id="experience">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-tag">My journey</span>
+          <h2 class="section-title">Work <span class="gradient-text">Experience</span></h2>
+        </div>
+
+        <div class="timeline">
+          <!-- KPIE Technologies -->
+          <div class="timeline-item" data-reveal>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <div class="timeline-title-wrap">
+                  <h3 class="timeline-role">Frontend Developer Intern</h3>
+                  <span class="timeline-company">KPIE Technologies</span>
+                </div>
+              </div>
+              
+              <div class="timeline-meta-compact">
+                <span class="timeline-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  Feb 2026 · 1 month
+                </span>
+                <span class="timeline-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Lagos, Nigeria
+                </span>
+              </div>
+              
+              <div class="timeline-summary">
+                Led frontend development on multiple projects with focus on AI-enhanced workflows and modern React patterns.
+              </div>
+              
+              <div class="timeline-tags">
+                <span>React.js</span>
+                <span>AI Tools</span>
+                <span>Boonbac API</span>
+                <span>HTML5/CSS3</span>
+              </div>
+              
+              <ul class="timeline-achievements">
+                <li>
+                  <span class="achievement-badge">+2%</span>
+                  <strong>Increased team development speed by 2%</strong> through strategic integration of AI tools (Amazon Q, GitHub Copilot, Windsurf, Codex), significantly reducing boilerplate code and debugging cycles.
+                </li>
+                <li>
+                  Delivered a <strong>production-ready movie streaming app</strong> with dynamic routing, Boonbac API integration, and fully responsive design—completed ahead of internship timeline.
+                </li>
+                <li>
+                  Built <strong>Oxbridge College web application</strong> using semantic HTML5, CSS3, and vanilla JavaScript with full cross-browser compatibility and accessibility compliance.
+                </li>
+                <li>
+                  Implemented modern UI/UX design patterns ensuring consistency, accessibility (WCAG 2.1), and optimal performance across all screen sizes.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- TrueMinds -->
+          <div class="timeline-item" data-reveal>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <div class="timeline-title-wrap">
+                  <h3 class="timeline-role">Frontend Developer Intern</h3>
+                  <span class="timeline-company">TrueMinds</span>
+                </div>
+              </div>
+              
+              <div class="timeline-meta-compact">
+                <span class="timeline-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  2024 – 2025 · 3 months
+                </span>
+                <span class="timeline-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Remote
+                </span>
+              </div>
+              
+              <div class="timeline-summary">
+                Developed scalable React components and collaborated in Agile environment, translating Figma designs into pixel-perfect UIs.
+              </div>
+              
+              <div class="timeline-tags">
+                <span>React.js</span>
+                <span>REST APIs</span>
+                <span>Figma</span>
+                <span>Git</span>
+                <span>Agile</span>
+              </div>
+              
+              <div class="timeline-achievements">
+                <div class="achievement-item" data-number="1">
+                  <div class="achievement-number">
+                    <i class="fas fa-layer-group"></i>
+                  </div>
+                  <div class="achievement-content">
+                    <h4 class="achievement-title">Component Architecture</h4>
+                    <p class="achievement-text">Built <strong>reusable, accessible React components</strong> directly from high-fidelity Figma designs, improving UI consistency and reducing development time across the product.</p>
+                  </div>
+                </div>
+
+                <div class="achievement-item" data-number="2">
+                  <div class="achievement-number">
+                    <i class="fas fa-plug"></i>
+                  </div>
+                  <div class="achievement-content">
+                    <h4 class="achievement-title">API Integration</h4>
+                    <p class="achievement-text">Integrated <strong>RESTful APIs</strong> across multiple views with robust async data handling, loading states, and comprehensive error management.</p>
+                  </div>
+                </div>
+
+                <div class="achievement-item" data-number="3">
+                  <div class="achievement-number">
+                    <i class="fas fa-users"></i>
+                  </div>
+                  <div class="achievement-content">
+                    <h4 class="achievement-title">Agile Collaboration</h4>
+                    <p class="achievement-text">Actively participated in <strong>Agile sprints</strong> with cross-functional teams, contributing to sprint planning and consistently delivering features on schedule within a 5-person team.</p>
+                  </div>
+                </div>
+
+                <div class="achievement-item" data-number="4">
+                  <div class="achievement-number">
+                    <i class="fas fa-code-branch"></i>
+                  </div>
+                  <div class="achievement-content">
+                    <h4 class="achievement-title">Code Quality</h4>
+                    <p class="achievement-text">Mastered <strong>Git workflows</strong>—feature branching, pull requests, and code reviews—maintaining high code quality standards and best practices across the team.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Locafy Hackathon -->
+          <div class="timeline-item" data-reveal>
+            <div class="timeline-dot timeline-dot-accent"></div>
+            <div class="timeline-content timeline-content-accent">
+              <div class="timeline-header">
+                <div class="timeline-title-wrap">
+                  <h3 class="timeline-role">Frontend Engineer — Hackathon</h3>
+                  <span class="timeline-company">Locafy — 48-Hour Hackathon</span>
+                </div>
+              </div>
+              
+              <div class="timeline-meta-compact">
+                <span class="timeline-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  Oct 2025 · 48 hours
+                </span>
+                <span class="timeline-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Lagos, Nigeria
+                </span>
+              </div>
+              
+              <div class="timeline-summary">
+                Led frontend architecture for location-discovery platform. Delivered production-ready UI with zero tech debt under intense time constraints.
+              </div>
+              
+              <div class="timeline-tags">
+                <span>React.js</span>
+                <span>Tailwind CSS</span>
+                <span>Responsive Design</span>
+                <span>Real-time Geolocation</span>
+              </div>
+              
+              <ul class="timeline-achievements">
+                <li>
+                  <span class="achievement-badge">⭐ Finalist</span>
+                  <strong>Architected responsive location-based interface</strong> handling real-time geolocation, maps integration, and dynamic content rendering—delivered within 48-hour deadline with zero bugs.
+                </li>
+                <li>
+                  Built <strong>performance-optimized UI components</strong> using React hooks and Tailwind CSS, achieving 95+ Lighthouse score and smooth 60fps animations across all devices.
+                </li>
+                <li>
+                  Implemented <strong>intuitive mobile-first UX</strong> with accessibility (WCAG 2.1 AA) and progressive enhancement—tested across 15+ device configurations.
+                </li>
+                <li>
+                  Led <strong>rapid prototyping iterations</strong> based on real-time user feedback, shipping 5+ feature pivots in 24 hours while maintaining code quality and performance.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education & Certifications side panel -->
+        <div class="edu-cert-grid" data-reveal>
+          <div class="edu-card">
+            <div class="edu-card-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="edu-card-content">
+              <h3>Education</h3>
+              <div class="edu-item">
+                <span class="edu-degree">B.Sc. Telecommunications Science</span>
+                <span class="edu-school">University of Ilorin, Kwara State</span>
+                <span class="edu-period">Jan 2024 – Present (In Progress)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-card-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="cert-card-content">
+              <h3>Certifications</h3>
+              <ul class="cert-list">
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  <span>Frontend Development Certificate — <em>Incubator Nigeria</em></span>
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  <span>Artificial Intelligence Training — <em>ALX Africa</em></span>
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  <span>Frontend Internship — <em>TrueMinds (Remote)</em></span>
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  <span>UI/UX & React Bootcamp — <em>River Bank Training, Ilorin</em></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS SECTION ===== -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-tag">What I've built</span>
+          <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- Project 1: Chicken Foods -->
+          <div class="project-card project-card-featured" data-reveal>
+            <div class="project-visual">
+              <div class="project-screenshot">
+                <div class="browser-bar">
+                  <span class="browser-dot"></span>
+                  <span class="browser-dot"></span>
+                  <span class="browser-dot"></span>
+                  <span class="browser-url">chicken-foods.vercel.app</span>
+                </div>
+                <img src="assets/images/chicken.png" alt="Chicken Foods App Screenshot" class="project-screenshot-img" loading="lazy" />
+              </div>
+              <div class="project-overlay">
+                <a href="https://chicken-foods.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <a href="https://github.com/pianstp/chicken_foods" target="_blank" rel="noopener noreferrer" class="project-link-btn project-link-ghost">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-number">01</div>
+              <h3 class="project-title">Chicken Foods — Client Demo</h3>
+              <p class="project-description">
+                A responsive food-ordering interface built for a real client with reusable component architecture, optimised UI performance, and smooth navigation.
+              </p>
+              <div class="project-stack">
+                <span>React.js</span>
+                <span>Next.js</span>
+                <span>TypeScript</span>
+                <span>Tailwind CSS</span>
+              </div>
+              <div class="project-links">
+                <a href="https://chicken-foods.vercel.app" target="_blank" rel="noopener noreferrer" class="project-external-link">
+                  <i class="fas fa-external-link-alt"></i> Live Site
+                </a>
+                <a href="https://github.com/pianstp/chicken_foods" target="_blank" rel="noopener noreferrer" class="project-external-link">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Promise Sync -->
+          <div class="project-card project-card-featured" data-reveal>
+            <div class="project-visual">
+              <div class="project-screenshot">
+                <div class="browser-bar">
+                  <span class="browser-dot"></span>
+                  <span class="browser-dot"></span>
+                  <span class="browser-dot"></span>
+                  <span class="browser-url">promise-sync-n5i5.vercel.app</span>
+                </div>
+                <img src="assets/images/jamb_lms.png" alt="Promise Sync AI Study Platform Screenshot" class="project-screenshot-img" loading="lazy" />
+              </div>
+              <div class="project-overlay">
+                <a href="https://promise-sync-n5i5.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-number">02</div>
+              <h3 class="project-title">Promise Sync — AI-Powered Study Platform</h3>
+              <p class="project-description">
+                An AI-enhanced JAMB study platform with interactive learning features, practice questions, accessibility-focused design, and clean UI architecture.
+              </p>
+              <div class="project-stack">
+                <span>React.js</span>
+                <span>Tailwind CSS</span>
+                <span>AI</span>
+              </div>
+              <div class="project-links">
+                <a href="https://promise-sync-n5i5.vercel.app" target="_blank" rel="noopener noreferrer" class="project-external-link">
+                  <i class="fas fa-external-link-alt"></i> Live Site
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Weather App -->
+          <div class="project-card" data-reveal>
+            <div class="project-visual project-visual-sm">
+              <div class="project-preview-placeholder project-preview-weather">
+                <i class="fas fa-cloud-sun"></i>
+                <span>Weather App</span>
+              </div>
+              <div class="project-overlay">
+                <a href="https://github.com/pianstp/weather-app" target="_blank" rel="noopener noreferrer" class="project-link-btn project-link-ghost">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-number">03</div>
+              <h3 class="project-title">React Weather App</h3>
+              <p class="project-description">
+                Real-time weather data with dynamic city search, API error handling, and loading states — fully responsive across all breakpoints.
+              </p>
+              <div class="project-stack">
+                <span>React.js</span>
+                <span>OpenWeather API</span>
+                <span>CSS</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/pianstp/weather-app" target="_blank" rel="noopener noreferrer" class="project-external-link">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Expense Tracker -->
+          <div class="project-card" data-reveal>
+            <div class="project-visual project-visual-sm">
+              <div class="project-preview-placeholder project-preview-finance">
+                <i class="fas fa-wallet"></i>
+                <span>Expense Tracker</span>
+              </div>
+              <div class="project-overlay">
+                <a href="https://github.com/pianstp/expense-tracker" target="_blank" rel="noopener noreferrer" class="project-link-btn project-link-ghost">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-number">04</div>
+              <h3 class="project-title">Expense Tracker App</h3>
+              <p class="project-description">
+                Lightweight CRUD financial tracker with category management, real-time balance calculation, and persistent localStorage — built in vanilla JS.
+              </p>
+              <div class="project-stack">
+                <span>JavaScript</span>
+                <span>DOM</span>
+                <span>localStorage</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/pianstp/expense-tracker" target="_blank" rel="noopener noreferrer" class="project-external-link">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="projects-cta" data-reveal>
+          <p>Want to see more of my work?</p>
+          <a href="https://github.com/pianstp" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <i class="fab fa-github"></i>
+            <span>View All on GitHub</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-tag">Let's connect</span>
+          <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-left" data-reveal>
+            <p class="contact-intro">
+              I'm currently <strong>open to new opportunities</strong> — both remote and international. Whether you have a project idea, a job offer, or just want to say hello, my inbox is always open!
+            </p>
+
+            <div class="contact-links">
+              <a href="mailto:onyebuchipromise@gmail.com" class="contact-link-card" id="emailLink">
+                <div class="contact-link-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-link-info">
+                  <span class="contact-link-label">Email</span>
+                  <span class="contact-link-value">onyebuchipromise@gmail.com</span>
+                </div>
+                <i class="fas fa-arrow-right contact-link-arrow"></i>
+              </a>
+
+              <a href="tel:+2349049407852" class="contact-link-card" id="phoneLink">
+                <div class="contact-link-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-link-info">
+                  <span class="contact-link-label">Phone</span>
+                  <span class="contact-link-value">+234 904 940 7852</span>
+                </div>
+                <i class="fas fa-arrow-right contact-link-arrow"></i>
+              </a>
+
+              <a href="https://linkedin.com/in/onyebuchi-promise" target="_blank" rel="noopener noreferrer" class="contact-link-card" id="linkedinLink">
+                <div class="contact-link-icon contact-link-icon-linkedin">
+                  <i class="fab fa-linkedin-in"></i>
+                </div>
+                <div class="contact-link-info">
+                  <span class="contact-link-label">LinkedIn</span>
+                  <span class="contact-link-value">onyebuchi-promise</span>
+                </div>
+                <i class="fas fa-arrow-right contact-link-arrow"></i>
+              </a>
+
+              <a href="https://github.com/pianstp" target="_blank" rel="noopener noreferrer" class="contact-link-card" id="githubLink">
+                <div class="contact-link-icon contact-link-icon-github">
+                  <i class="fab fa-github"></i>
+                </div>
+                <div class="contact-link-info">
+                  <span class="contact-link-label">GitHub</span>
+                  <span class="contact-link-value">github.com/pianstp</span>
+                </div>
+                <i class="fas fa-arrow-right contact-link-arrow"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-right" data-reveal>
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="form-group">
+                <label for="name" class="form-label">Your Name</label>
+                <div class="form-input-wrap">
+                  <i class="fas fa-user form-icon"></i>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="form-input"
+                    placeholder="John Doe"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+                <span class="form-error" id="nameError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Your Email</label>
+                <div class="form-input-wrap">
+                  <i class="fas fa-envelope form-icon"></i>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-input"
+                    placeholder="john@example.com"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+                <span class="form-error" id="emailError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="subject" class="form-label">Subject</label>
+                <div class="form-input-wrap">
+                  <i class="fas fa-tag form-icon"></i>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    class="form-input"
+                    placeholder="Job Opportunity / Project Collaboration"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label">Message</label>
+                <div class="form-input-wrap form-textarea-wrap">
+                  <i class="fas fa-comment form-icon form-icon-top"></i>
+                  <textarea
+                    id="message"
+                    name="message"
+                    class="form-input form-textarea"
+                    placeholder="Tell me about your project or opportunity..."
+                    rows="5"
+                    required
+                    aria-required="true"
+                  ></textarea>
+                </div>
+                <span class="form-error" id="messageError"></span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+                <span class="btn-text">Send Message</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+
+              <div class="form-success" id="formSuccess">
+                <i class="fas fa-check-circle"></i>
+                <span>Message sent! I'll get back to you soon.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="footer-logo">OP<span class="footer-logo-dot">.</span></a>
+          <p class="footer-tagline">Frontend Engineer — Building the web, one component at a time.</p>
+          <div class="footer-socials">
+            <a href="https://github.com/pianstp" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="footer-social-link">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/onyebuchi-promise" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="footer-social-link">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:onyebuchipromise@gmail.com" aria-label="Email" class="footer-social-link">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h4>Projects</h4>
+          <ul>
+            <li><a href="https://chicken-foods.vercel.app" target="_blank" rel="noopener noreferrer">Chicken Foods</a></li>
+            <li><a href="https://promise-sync-n5i5.vercel.app" target="_blank" rel="noopener noreferrer">Promise Sync</a></li>
+            <li><a href="https://github.com/pianstp/weather-app" target="_blank" rel="noopener noreferrer">Weather App</a></li>
+            <li><a href="https://github.com/pianstp/expense-tracker" target="_blank" rel="noopener noreferrer">Expense Tracker</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:onyebuchipromise@gmail.com">Email Me</a></li>
+            <li><a href="tel:+2349049407852">+234 904 940 7852</a></li>
+            <li><a href="https://onyebuchipromise.netlify.app" target="_blank" rel="noopener noreferrer">Live Site</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> Onyebuchi Chukwuemerie Promise. All rights reserved.</p>
+        <p>Built with <span class="heart">♥</span> in Lagos, Nigeria</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Resume Modal -->
+  <div class="resume-modal" id="resumeModal">
+    <div class="resume-modal-content">
+      <div class="resume-modal-header">
+        <h2>My Resume</h2>
+        <button class="resume-modal-close" id="resumeModalClose" aria-label="Close resume">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="resume-modal-body">
+        <iframe 
+          src="assets/resume/Onyebuchi_2026_1.pdf" 
+          class="resume-iframe"
+          title="Onyebuchi Promise Resume"
+        ></iframe>
+      </div>
+      <div class="resume-modal-footer">
+        <a href="assets/resume/Onyebuchi_2026_1.pdf" download="Onyebuchi_Promise_Resume.pdf" class="btn btn-primary">
+          <i class="fas fa-download"></i>
+          <span>Download Resume</span>
+        </a>
+      </div>
+    </div>
+    <div class="resume-modal-overlay"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
