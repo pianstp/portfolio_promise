@@ -93,6 +93,66 @@ if (cursor && cursorFollower && window.matchMedia('(pointer: fine)').matches) {
 }
 
 /* ============================================================
+   TYPEWRITER EFFECT
+   ============================================================ */
+function initTypewriter() {
+  const typedText = document.querySelector('.typed-text');
+  const cursorElement = document.querySelector('.role-words .cursor');
+  
+  if (!typedText || !cursorElement) return;
+
+  const textArray = [
+    'React.js Apps',
+    'Next.js Projects',
+    'TypeScript Systems',
+    'Flutter UIs'
+  ];
+
+  let currentIndex = 0;
+  let charIndex = 0;
+  let isTyping = true;
+  const typingSpeed = 80; // milliseconds per character
+  const deletingSpeed = 50; // milliseconds per character
+  const pauseBetweenWords = 2000; // milliseconds
+
+  function type() {
+    const currentText = textArray[currentIndex];
+
+    if (isTyping) {
+      if (charIndex < currentText.length) {
+        typedText.textContent += currentText[charIndex];
+        charIndex++;
+        setTimeout(type, typingSpeed);
+      } else {
+        // Done typing, pause before deleting
+        isTyping = false;
+        setTimeout(type, pauseBetweenWords);
+      }
+    } else {
+      // Deleting
+      if (charIndex > 0) {
+        typedText.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(type, deletingSpeed);
+      } else {
+        // Done deleting, move to next word
+        currentIndex = (currentIndex + 1) % textArray.length;
+        isTyping = true;
+        setTimeout(type, 500);
+      }
+    }
+  }
+
+  // Start after a delay
+  setTimeout(type, 800);
+}
+
+// Initialize typewriter when page loads
+window.addEventListener('load', () => {
+  setTimeout(initTypewriter, 2500);
+});
+
+/* ============================================================
    PARTICLE CANVAS
    ============================================================ */
 (function initParticles() {
